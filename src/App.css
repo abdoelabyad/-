@@ -295,6 +295,14 @@
   box-shadow: 0 14px 28px rgb(2 132 199 / 32%);
 }
 
+#root form button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.35);
+  opacity: 0.55;
+  box-shadow: none;
+  transform: none;
+}
+
 #root form button:focus-visible {
   outline: 3px solid #7dd3fc;
   outline-offset: 3px;

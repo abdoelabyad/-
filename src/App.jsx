@@ -83,7 +83,13 @@ function changeName(event) {
       {validationMessage && <p className="validation-message" role="alert">{validationMessage}</p>}
       <br></br>
       <br></br>
-     <button className='bg-amber-50 rounded  pl-3 pb-3' type="submit" >Change name</button>
+     <button
+       className='bg-amber-50 rounded pl-3 pb-3'
+       type="submit"
+       disabled={!name.trim() || !phone.trim()}
+     >
+       Change name
+     </button>
         </form>
     </div>
 
