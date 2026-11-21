@@ -10,7 +10,14 @@ function normalizeName(value) {
 }
 
 const namesToMask = new Set(
-  ['عبده الابيض', 'abdoelabyad', 'abdo elabyad'].map(normalizeName),
+  [
+    'عبده الابيض',
+    'abdoelabyad',
+    'abdo elabyad',
+    'عبدالرحمن سامح',
+    'abdelrhman sameh',
+    'عبدالرحمن',
+  ].map(normalizeName),
 )
 
 export default function App() {
