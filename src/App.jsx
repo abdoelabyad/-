@@ -21,7 +21,9 @@ const namesToMask = new Set(
     'ابيض',
     'sameh',
     'الابيض',
-    'abyad'
+    'abyad',
+    'elabyad',
+    'Elabyad'
   ].map(normalizeName),
 )
 
