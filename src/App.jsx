@@ -1,5 +1,18 @@
 import { useState } from 'react'
 
+function normalizeName(value) {
+  return value
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/[أإآ]/g, 'ا')
+    .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+    .replace(/\s+/g, '')
+}
+
+const namesToMask = new Set(
+  ['عبده الابيض', 'abdoelabyad', 'abdo elabyad'].map(normalizeName),
+)
+
 export default function App() {
 
   const [Header, setHeader] = useState("يستفتيكم المهندس عبدالرحمن سامح")
@@ -20,7 +33,12 @@ function changeName(event) {
   }
 
   setValidationMessage("")
-  setHeader(`كسمك غلط يا ${trimmedName}`)
+  const displayName = namesToMask.has(normalizeName(trimmedName))
+    ? '*'.repeat(trimmedName.length)
+    : trimmedName
+
+  if (displayName !== trimmedName) setName(displayName)
+  setHeader(`كسمك غلط يا ${displayName}`)
   setHasChanged(true)
 }
 
